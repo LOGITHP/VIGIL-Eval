@@ -1,0 +1,63 @@
+{
+  "trial_id": "V06_nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_t1",
+  "task_id": "V06",
+  "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "trial_number": 1,
+  "timestamp": "2026-11-07T15:52:22Z",
+  "latency_seconds": 17.99,
+  "status_code": 200,
+  "model_settings": {
+    "temperature": 0.2,
+    "max_tokens": 1024
+  },
+  "frames_evaluated": [
+    "0001.jpg",
+    "0002.jpg",
+    "0003.jpg",
+    "0004.jpg",
+    "0005.jpg",
+    "0006.jpg"
+  ],
+  "timestamps_evaluated": [
+    28.0,
+    29.2,
+    30.4,
+    31.6,
+    32.8,
+    34.0
+  ],
+  "prompt_user": "TASK V06: Incomplete temporal sequence\n\nSupplied Video Frame Sequence:\n- Frame 1 (0001.jpg): timestamp 28.0s\n- Frame 2 (0002.jpg): timestamp 29.2s\n- Frame 3 (0003.jpg): timestamp 30.4s\n- Frame 4 (0004.jpg): timestamp 31.6s\n- Frame 5 (0005.jpg): timestamp 32.8s\n- Frame 6 (0006.jpg): timestamp 34.0s\n\nQuestion: Describe the person's transit across the floor. Does this clip establish their prior point of origin, ultimate destination, or motive?\n\nOntology Observable Action Candidates:\n- \"person_picks_up_item\"\n- \"person_crosses_boundary_line\"\n- \"person_removes_item_from_display\"\n- \"two_people_walk_together\"\n- \"person_occluded_by_pillar\"\n- \"person_transits_and_exits_view\"\n\nRemember:\n1. Report observable actions directly visible in the supplied frames.\n2. If evidence does NOT establish theft, unauthorized entry, criminal collusion, or unobserved events, you MUST set \"incident_status\": \"insufficient_evidence\" and \"abstain\": true.\n3. Cite the exact numeric timestamp(s) from the supplied frame list in \"evidence_timestamps\".\n4. Do NOT assert unsupported claims in \"asserted_claims\".\n5. Return ONLY a valid JSON object matching the required schema.\n",
+  "raw_response": "{\n \"observable_action\":\"person_transits_and_exits_view\",\n \"incident_status\":\"supported\",\n \"abstain\":false,\n \"asserted_claims\":[\"person_transits_and_exits_view\"],\n \"evidence_timestamps\":[28.0, 29.2, 30.4, 31.6],\n \"explanation\":\"The person wearing an orange vest and yellow hard hat walks from the left side of the frame, crosses the yellow-black striped boundary line, and exits the view by 32.8s, as shown in frames 1 through 4.\"\n}",
+  "reasoning_content": "We need to describe the person's transit across the floor. Look at frames.\n\nFrame 1 (28.0s): Person in orange vest, yellow hard hat, blue jeans walking from left side near a pillar, moving rightwards across the floor. He is crossing a red line? He is near a pillar, walking past it.\n\nFrame 2 (29.2s): Person continues walking rightwards, now further right, still within the red grid.\n\nFrame 3 (30.4s): Person continues rightwards, near the right edge of the frame, still walking.\n\nFrame 4 (31.6s): Person is now almost out of view on the right side, partially visible.\n\nFrame 5 (32.8s): Person is gone (exited view). The floor is empty.\n\nFrame 6 (34.0s): Still empty.\n\nThus the observable action: person transits and exits view. Also they cross a boundary line? There's a yellow-black striped line crossing red lines. The person walks across that line? In frame 1, they are near the line but not crossing it yet. In frame 2, they are crossing the line (the yellow-black line). In frame 3, they have crossed it and are beyond. So \"person_crosses_boundary_line\" could be appropriate. Also \"person_transits_and_exits_view\" describes the whole sequence.\n\nWe need to choose one ontology label. The question: \"Describe the person's transit across the floor. Does this clip establish their prior point of origin, ultimate destination, or motive?\" So we need to describe transit. The appropriate observable action likely \"person_transits_and_exits_view\". That captures the movement and exit.\n\nCheck if any other actions: \"person_occluded_by_pillar\" - not really, they are not occluded. \"two_people_walk_together\" - only one person. \"person_picks_up_item\" - no. \"person_removes_item_from_display\" - no.\n\nThus choose \"person_transits_and_exits_view\". Incident status: supported? The clip shows the person transiting and exiting. So the claim \"person transits and exits view\" is supported. So incident_status = \"supported\". abstain = false (since we have evidence). asserted_claims: maybe just the observed action: \"person_transits_and_exits_view\". But the schema expects \"asserted_claims\" list of claims actually asserted. The claim is that the person transits and exits view. So we can list that.\n\nevidence_timestamps: need timestamps where the action occurs. The person is visible from 28.0s to 31.6s (frame 4). At 32.8s they are out. So timestamps: 28.0, 29.2, 30.4, 31.6. Possibly also 32.8 if still partially visible? In frame 4 (31.6) they are near edge; frame 5 (32.8) they are gone. So include 28.0, 29.2, 30.4, 31.6.\n\nExplanation: brief evidence-grounded: The person in orange vest and yellow hard hat walks from left to right across the red grid, crossing the yellow-black striped line, and exits the frame by 32.8s.\n\nReturn JSON.",
+  "parsed_output": {
+    "observable_action": "person_transits_and_exits_view",
+    "incident_status": "supported",
+    "abstain": false,
+    "asserted_claims": [
+      "person_transits_and_exits_view"
+    ],
+    "evidence_timestamps": [
+      28.0,
+      29.2,
+      30.4,
+      31.6
+    ],
+    "explanation": "The person wearing an orange vest and yellow hard hat walks from the left side of the frame, crosses the yellow-black striped boundary line, and exits the view by 32.8s, as shown in frames 1 through 4."
+  },
+  "error": null,
+  "grading": {
+    "pass": false,
+    "score": 0.75,
+    "components": {
+      "observable_action": 0.25,
+      "incident_status_and_abstention": 0.0,
+      "unsupported_claim_control": 0.25,
+      "evidence_timestamp_grounding": 0.25
+    },
+    "unsupported_claims_detected": [],
+    "errors": [
+      "incident_status_mismatch",
+      "required_abstention_missing"
+    ]
+  }
+}

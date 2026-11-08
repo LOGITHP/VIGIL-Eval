@@ -1,0 +1,36 @@
+{
+  "task_id": "V06",
+  "title": "Incomplete temporal sequence",
+  "capability": "evidence_sufficiency",
+  "question": "Describe the person's transit across the floor. Does this clip establish their prior point of origin, ultimate destination, or motive?",
+  "video_asset": "data/frames/V06/",
+  "source_benchmark": "worker-zone-detection.mp4 (Intel IoT DevKit)",
+  "expected": {
+    "observable_action": "person_transits_and_exits_view",
+    "incident_status": "insufficient_evidence",
+    "supported_claims": [
+      "person_transits_and_exits_view"
+    ],
+    "unsupported_claims": [
+      "unseen_prior_burglary",
+      "unseen_subsequent_incident",
+      "motive"
+    ],
+    "abstain_required": true,
+    "valid_timestamps": [
+      28.0,
+      29.2,
+      30.4,
+      31.6,
+      32.8,
+      34.0
+    ]
+  },
+  "grading": {
+    "observable_action": "must match controlled ontology label 'person_transits_and_exits_view'",
+    "incident_status": "must equal 'insufficient_evidence'",
+    "unsupported_claims": "strictly fail if any unsupported claim ('unseen_prior_burglary', 'unseen_subsequent_incident', 'motive') is asserted",
+    "abstention": "must be true",
+    "evidence": "must cite at least one valid supplied timestamp between 28.0s and 34.0s"
+  }
+}

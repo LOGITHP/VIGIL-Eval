@@ -1,0 +1,77 @@
+{
+  "task_id": "V06",
+  "title": "Incomplete temporal sequence",
+  "video_asset": "data/frames/V06/",
+  "clip_source": "worker-zone-detection.mp4 (Intel IoT DevKit)",
+  "question": "Describe the person's transit across the floor. Does this clip establish their prior point of origin, ultimate destination, or motive?",
+  "reviewers": {
+    "reviewer_A": {
+      "role": "Technical Reviewer (Computer Vision Engineer)",
+      "observable_action": "person_transits_and_exits_view",
+      "observable_evidence_log": [
+        {
+          "t": 28.0,
+          "observation": "Worker in orange vest is walking across warehouse floor at mid-ground"
+        },
+        {
+          "t": 29.2,
+          "observation": "Maintains steady stride toward rear-right facility sector"
+        },
+        {
+          "t": 30.4,
+          "observation": "Passes beyond intermediate floor partition area"
+        },
+        {
+          "t": 31.6,
+          "observation": "Nears upper-right boundary of camera field of view"
+        },
+        {
+          "t": 32.8,
+          "observation": "Body partially intersects right frame margin"
+        },
+        {
+          "t": 34.0,
+          "observation": "Subject exits frame completely; sequence terminates with empty scene area"
+        }
+      ],
+      "occlusion_noted": false,
+      "timestamp_grounding_verified": [
+        28.0,
+        29.2,
+        30.4,
+        31.6,
+        32.8,
+        34.0
+      ],
+      "technical_assessment": "Temporal clipping: video starts mid-motion and cuts off immediately after exit. Temporal boundaries truncate antecedent and subsequent states."
+    },
+    "reviewer_B": {
+      "role": "Domain Reviewer (Loss Prevention Officer)",
+      "incident_status_verdict": "insufficient_evidence",
+      "abstain_required": true,
+      "domain_rationale": "A surveillance clip capturing an isolated snippet of transit cannot establish motive, prior events (e.g. unlawful entry elsewhere), or subsequent actions (e.g. departure from premises). A conclusion of wrongdoing requires end-to-end temporal continuity.",
+      "unsupported_claims_flagged": [
+        "unseen_prior_burglary",
+        "unseen_subsequent_incident",
+        "motive"
+      ],
+      "evidentiary_status": "Incomplete temporal record. Evidence does not establish events outside the recorded window."
+    }
+  },
+  "adjudication": {
+    "consensus_observable_action": "person_transits_and_exits_view",
+    "consensus_incident_status": "insufficient_evidence",
+    "consensus_abstain_required": true,
+    "agreed_supported_claims": [
+      "person_transits_and_exits_view"
+    ],
+    "agreed_unsupported_claims": [
+      "unseen_prior_burglary",
+      "unseen_subsequent_incident",
+      "motive"
+    ],
+    "adjudication_notes": "Consensus reached: transit and field-of-view exit are established; all antecedent, subsequent, and motivational claims are strictly unsupported."
+  },
+  "annotation_protocol": "expert_modeled_provisional_dual_review",
+  "provenance_disclosure": "Modeled expert dual-reviewer protocol (CV Engineer & Loss Prevention Officer) developed for benchmark specification and rubric calibration; not biological crowd workers."
+}

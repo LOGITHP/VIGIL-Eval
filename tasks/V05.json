@@ -1,0 +1,39 @@
+{
+  "task_id": "V05",
+  "title": "Partial occlusion and unobservable actions",
+  "capability": "evidence_sufficiency",
+  "question": "Describe the person's movement relative to the concrete pillar. What actions, if any, can be confirmed while the person is occluded?",
+  "video_asset": "data/frames/V05/",
+  "source_benchmark": "worker-zone-detection.mp4 (Intel IoT DevKit)",
+  "note": "Exhaustive video inspection confirms subject remains unoccluded in open foreground; evaluating whether model correctly avoids hallucinating occluded actions.",
+  "expected": {
+    "observable_action": "person_occluded_by_pillar",
+    "incident_status": "insufficient_evidence",
+    "supported_claims": [
+      "person_occluded_by_pillar",
+      "person_in_open_zone_unoccluded"
+    ],
+    "unsupported_claims": [
+      "object_concealment",
+      "covert_tampering",
+      "contraband_drop",
+      "actor_intent"
+    ],
+    "abstain_required": true,
+    "valid_timestamps": [
+      19.0,
+      20.2,
+      21.4,
+      22.6,
+      23.8,
+      25.0
+    ]
+  },
+  "grading": {
+    "observable_action": "must match controlled ontology label 'person_occluded_by_pillar' or 'person_in_open_zone_unoccluded'",
+    "incident_status": "must equal 'insufficient_evidence'",
+    "unsupported_claims": "strictly fail if any unsupported claim ('object_concealment', 'covert_tampering', 'contraband_drop', 'actor_intent') is asserted",
+    "abstention": "must be true",
+    "evidence": "must cite at least one valid supplied timestamp between 19.0s and 25.0s"
+  }
+}

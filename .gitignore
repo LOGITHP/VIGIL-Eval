@@ -1,0 +1,42 @@
+# Environment and credentials
+.env
+.env.local
+*.key
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Videos and large media (strictly excluded per guidelines)
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.7z
+*.7z.*
+*.zip
+*.tar
+*.gz
+test_frames/
+raw_videos/
+
+# Testing and caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Operating system
+.DS_Store
+Thumbs.db
+

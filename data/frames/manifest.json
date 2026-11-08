@@ -1,0 +1,79 @@
+{
+  "V01": {
+    "description": "Object pickup vs theft attribution (man in fedora inspects ceramic bowl/dish on retail display table)",
+    "source_video": "store-aisle-detection.mp4",
+    "num_frames": 6,
+    "timestamps": [
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0
+    ]
+  },
+  "V02": {
+    "description": "Marked zone entry vs authorization (worker in safety vest/hard hat crosses floor perimeter hazard line)",
+    "source_video": "worker-zone-detection.mp4",
+    "num_frames": 6,
+    "timestamps": [
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0
+    ]
+  },
+  "V03": {
+    "description": "Object removal vs wrongful removal (woman in brown jacket lifts merchandise item from lower display and carries away)",
+    "source_video": "store-aisle-detection.mp4",
+    "num_frames": 6,
+    "timestamps": [
+      20.0,
+      21.0,
+      22.0,
+      23.0,
+      24.0,
+      25.0
+    ]
+  },
+  "V04": {
+    "description": "Human interaction vs inferred collusion/exchange (two individuals walk alongside each other through entrance area)",
+    "source_video": "people-detection.mp4",
+    "num_frames": 5,
+    "timestamps": [
+      15.0,
+      15.8,
+      16.6,
+      17.4,
+      18.2
+    ]
+  },
+  "V05": {
+    "description": "Partial occlusion (worker walks behind massive concrete pillar, completely obscuring body and hands)",
+    "source_video": "worker-zone-detection.mp4",
+    "num_frames": 6,
+    "timestamps": [
+      19.0,
+      20.2,
+      21.4,
+      22.6,
+      23.8,
+      25.0
+    ]
+  },
+  "V06": {
+    "description": "Incomplete sequence (worker transits across floor and exits field of view without prior or subsequent context)",
+    "source_video": "worker-zone-detection.mp4",
+    "num_frames": 6,
+    "timestamps": [
+      28.0,
+      29.2,
+      30.4,
+      31.6,
+      32.8,
+      34.0
+    ]
+  }
+}

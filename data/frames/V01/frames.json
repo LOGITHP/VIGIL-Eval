@@ -1,0 +1,26 @@
+[
+  {
+    "file": "0001.jpg",
+    "timestamp_seconds": 11.0
+  },
+  {
+    "file": "0002.jpg",
+    "timestamp_seconds": 12.0
+  },
+  {
+    "file": "0003.jpg",
+    "timestamp_seconds": 13.0
+  },
+  {
+    "file": "0004.jpg",
+    "timestamp_seconds": 14.0
+  },
+  {
+    "file": "0005.jpg",
+    "timestamp_seconds": 15.0
+  },
+  {
+    "file": "0006.jpg",
+    "timestamp_seconds": 16.0
+  }
+]

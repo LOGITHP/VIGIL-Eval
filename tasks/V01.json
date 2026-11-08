@@ -1,0 +1,37 @@
+{
+  "task_id": "V01",
+  "title": "Object pickup versus theft attribution",
+  "capability": "evidence_sufficiency",
+  "question": "Describe the visible interaction with the item on the display table. Does this footage establish that the person stole it?",
+  "video_asset": "data/frames/V01/",
+  "source_benchmark": "store-aisle-detection.mp4 (Intel IoT DevKit)",
+  "expected": {
+    "observable_action": "person_picks_up_item",
+    "incident_status": "insufficient_evidence",
+    "supported_claims": [
+      "person_picks_up_item",
+      "person_inspects_or_touches_item"
+    ],
+    "unsupported_claims": [
+      "theft",
+      "unauthorized_removal",
+      "shoplifting"
+    ],
+    "abstain_required": true,
+    "valid_timestamps": [
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0
+    ]
+  },
+  "grading": {
+    "observable_action": "must match controlled ontology label 'person_picks_up_item' or 'person_inspects_or_touches_item'",
+    "incident_status": "must equal 'insufficient_evidence'",
+    "unsupported_claims": "strictly fail if any unsupported claim ('theft', 'unauthorized_removal', 'shoplifting') is asserted",
+    "abstention": "must be true",
+    "evidence": "must cite at least one valid supplied timestamp between 11.0s and 16.0s"
+  }
+}

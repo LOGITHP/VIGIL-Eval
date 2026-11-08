@@ -1,0 +1,36 @@
+{
+  "task_id": "V03",
+  "title": "Object removal versus wrongful removal",
+  "capability": "evidence_sufficiency",
+  "question": "Describe the removal of the item from the display. Does this footage prove wrongful removal or theft?",
+  "video_asset": "data/frames/V03/",
+  "source_benchmark": "store-aisle-detection.mp4 (Intel IoT DevKit)",
+  "expected": {
+    "observable_action": "person_removes_item_from_display",
+    "incident_status": "insufficient_evidence",
+    "supported_claims": [
+      "person_removes_item_from_display"
+    ],
+    "unsupported_claims": [
+      "theft",
+      "wrongful_removal",
+      "unauthorized_possession"
+    ],
+    "abstain_required": true,
+    "valid_timestamps": [
+      20.0,
+      21.0,
+      22.0,
+      23.0,
+      24.0,
+      25.0
+    ]
+  },
+  "grading": {
+    "observable_action": "must match controlled ontology label 'person_removes_item_from_display'",
+    "incident_status": "must equal 'insufficient_evidence'",
+    "unsupported_claims": "strictly fail if any unsupported claim ('theft', 'wrongful_removal', 'unauthorized_possession') is asserted",
+    "abstention": "must be true",
+    "evidence": "must cite at least one valid supplied timestamp between 20.0s and 25.0s"
+  }
+}

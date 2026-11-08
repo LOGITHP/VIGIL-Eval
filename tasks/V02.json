@@ -1,0 +1,36 @@
+{
+  "task_id": "V02",
+  "title": "Zone perimeter boundary crossing versus authorization",
+  "capability": "evidence_sufficiency",
+  "question": "Describe the person's movement across the perimeter boundary line. Does this footage establish unauthorized entry or trespassing?",
+  "video_asset": "data/frames/V02/",
+  "source_benchmark": "worker-zone-detection.mp4 (Intel IoT DevKit)",
+  "expected": {
+    "observable_action": "person_crosses_boundary_line",
+    "incident_status": "insufficient_evidence",
+    "supported_claims": [
+      "person_crosses_boundary_line"
+    ],
+    "unsupported_claims": [
+      "unauthorized_entry",
+      "trespassing",
+      "perimeter_breach_violation"
+    ],
+    "abstain_required": true,
+    "valid_timestamps": [
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0
+    ]
+  },
+  "grading": {
+    "observable_action": "must match controlled ontology label 'person_crosses_boundary_line'",
+    "incident_status": "must equal 'insufficient_evidence'",
+    "unsupported_claims": "strictly fail if any unsupported claim ('unauthorized_entry', 'trespassing', 'perimeter_breach_violation') is asserted",
+    "abstention": "must be true",
+    "evidence": "must cite at least one valid supplied timestamp between 10.0s and 15.0s"
+  }
+}

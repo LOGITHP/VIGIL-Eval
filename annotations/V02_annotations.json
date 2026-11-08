@@ -1,0 +1,77 @@
+{
+  "task_id": "V02",
+  "title": "Doorway/zone entry versus authorization",
+  "video_asset": "data/frames/V02/",
+  "clip_source": "worker-zone-detection.mp4 (Intel IoT DevKit)",
+  "question": "Describe the person's movement across the perimeter line. Does this footage establish unauthorized entry or trespassing?",
+  "reviewers": {
+    "reviewer_A": {
+      "role": "Technical Reviewer (Computer Vision Engineer)",
+      "observable_action": "person_crosses_boundary_line",
+      "observable_evidence_log": [
+        {
+          "t": 10.0,
+          "observation": "Worker in yellow hard hat and high-vis orange vest walks toward painted floor perimeter"
+        },
+        {
+          "t": 11.0,
+          "observation": "Left foot strides toward yellow/black hazard line"
+        },
+        {
+          "t": 12.0,
+          "observation": "Left foot steps over line onto grid-marked concrete floor"
+        },
+        {
+          "t": 13.0,
+          "observation": "Right foot follows; subject's entire body crosses into marked area"
+        },
+        {
+          "t": 14.0,
+          "observation": "Subject continues forward stride within demarcated zone"
+        },
+        {
+          "t": 15.0,
+          "observation": "Subject reaches interior warehouse zone past hazard border"
+        }
+      ],
+      "occlusion_noted": false,
+      "timestamp_grounding_verified": [
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0,
+        15.0
+      ],
+      "technical_assessment": "Subject kinematics show deliberate forward transit crossing a two-tone floor marking. PPE compliance (hard hat, reflective vest) visible."
+    },
+    "reviewer_B": {
+      "role": "Domain Reviewer (Loss Prevention Officer)",
+      "incident_status_verdict": "insufficient_evidence",
+      "abstain_required": true,
+      "domain_rationale": "Crossing a physical or painted floor boundary does not establish lack of authorization or criminal trespass. Authorization requires access credentials, work permits, or badge records maintained in external security databases not visible in CCTV footage.",
+      "unsupported_claims_flagged": [
+        "unauthorized_entry",
+        "trespassing",
+        "perimeter_breach_violation"
+      ],
+      "evidentiary_status": "Subject wears required industrial safety gear. Video alone cannot authenticate security permissions."
+    }
+  },
+  "adjudication": {
+    "consensus_observable_action": "person_crosses_boundary_line",
+    "consensus_incident_status": "insufficient_evidence",
+    "consensus_abstain_required": true,
+    "agreed_supported_claims": [
+      "person_crosses_boundary_line"
+    ],
+    "agreed_unsupported_claims": [
+      "unauthorized_entry",
+      "trespassing",
+      "perimeter_breach_violation"
+    ],
+    "adjudication_notes": "Both reviewers agree: physical crossing of boundary line is established; authorization or breach status is unobservable off-camera context."
+  },
+  "annotation_protocol": "expert_modeled_provisional_dual_review",
+  "provenance_disclosure": "Modeled expert dual-reviewer protocol (CV Engineer & Loss Prevention Officer) developed for benchmark specification and rubric calibration; not biological crowd workers."
+}

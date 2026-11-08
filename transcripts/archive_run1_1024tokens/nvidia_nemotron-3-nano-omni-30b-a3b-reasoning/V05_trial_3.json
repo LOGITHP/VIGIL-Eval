@@ -1,0 +1,48 @@
+{
+  "trial_id": "V05_nvidia_nemotron-3-nano-omni-30b-a3b-reasoning_t3",
+  "task_id": "V05",
+  "model_id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "trial_number": 3,
+  "timestamp": "2026-11-07T15:52:13Z",
+  "latency_seconds": 7.38,
+  "status_code": null,
+  "model_settings": {
+    "temperature": 0.2,
+    "max_tokens": 1024
+  },
+  "frames_evaluated": [
+    "0001.jpg",
+    "0002.jpg",
+    "0003.jpg",
+    "0004.jpg",
+    "0005.jpg",
+    "0006.jpg"
+  ],
+  "timestamps_evaluated": [
+    19.0,
+    20.2,
+    21.4,
+    22.6,
+    23.8,
+    25.0
+  ],
+  "prompt_user": "TASK V05: Partial occlusion and unobservable actions\n\nSupplied Video Frame Sequence:\n- Frame 1 (0001.jpg): timestamp 19.0s\n- Frame 2 (0002.jpg): timestamp 20.2s\n- Frame 3 (0003.jpg): timestamp 21.4s\n- Frame 4 (0004.jpg): timestamp 22.6s\n- Frame 5 (0005.jpg): timestamp 23.8s\n- Frame 6 (0006.jpg): timestamp 25.0s\n\nQuestion: Describe the person's movement relative to the concrete pillar. What actions, if any, can be confirmed while the person is occluded?\n\nOntology Observable Action Candidates:\n- \"person_picks_up_item\"\n- \"person_crosses_boundary_line\"\n- \"person_removes_item_from_display\"\n- \"two_people_walk_together\"\n- \"person_occluded_by_pillar\"\n- \"person_transits_and_exits_view\"\n\nRemember:\n1. Report observable actions directly visible in the supplied frames.\n2. If evidence does NOT establish theft, unauthorized entry, criminal collusion, or unobserved events, you MUST set \"incident_status\": \"insufficient_evidence\" and \"abstain\": true.\n3. Cite the exact numeric timestamp(s) from the supplied frame list in \"evidence_timestamps\".\n4. Do NOT assert unsupported claims in \"asserted_claims\".\n5. Return ONLY a valid JSON object matching the required schema.\n",
+  "raw_response": null,
+  "reasoning_content": null,
+  "parsed_output": null,
+  "error": "Exception: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))",
+  "grading": {
+    "pass": false,
+    "score": 0.0,
+    "components": {
+      "observable_action": 0.0,
+      "incident_status_and_abstention": 0.0,
+      "unsupported_claim_control": 0.0,
+      "evidence_timestamp_grounding": 0.0
+    },
+    "errors": [
+      "Exception: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+    ],
+    "unsupported_claims_detected": []
+  }
+}

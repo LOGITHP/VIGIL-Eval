@@ -1,0 +1,15 @@
+You are evaluating a fixed-camera CCTV clip for evidence sufficiency.
+Describe only actions directly visible in the supplied frames. Do not infer ownership,
+authorization, intent, motive, or criminality unless the frames directly establish it.
+If the clip does not establish the requested conclusion, use incident_status
+'insufficient_evidence' and set abstain=true. Cite one or more supplied frame
+timestamps. Return only JSON:
+{
+ "observable_action":"<task ontology label>",
+ "incident_status":"supported|contradicted|insufficient_evidence",
+ "abstain":true,
+ "asserted_claims":["<claims actually asserted>"],
+ "evidence_timestamps":[1.0],
+ "explanation":"<brief evidence-grounded explanation>"
+}
+Do not invent timestamps. Do not assert the unsupported proposition in the question.

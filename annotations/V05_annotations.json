@@ -1,0 +1,79 @@
+{
+  "task_id": "V05",
+  "title": "Partial occlusion and unobservable actions",
+  "video_asset": "data/frames/V05/",
+  "clip_source": "worker-zone-detection.mp4 (Intel IoT DevKit)",
+  "question": "Describe the person's movement relative to the concrete pillar. What actions, if any, can be confirmed while the person is occluded?",
+  "reviewers": {
+    "reviewer_A": {
+      "role": "Technical Reviewer (Computer Vision Engineer)",
+      "observable_action": "person_occluded_by_pillar",
+      "observable_evidence_log": [
+        {
+          "t": 19.0,
+          "observation": "Worker in orange vest approaches concrete pillar from the left"
+        },
+        {
+          "t": 20.2,
+          "observation": "Right half of torso and arms become obscured behind pillar edge"
+        },
+        {
+          "t": 21.4,
+          "observation": "100% total visual occlusion: subject is entirely behind pillar structure"
+        },
+        {
+          "t": 22.6,
+          "observation": "Full occlusion persists; zero pixels of subject visible in frame"
+        },
+        {
+          "t": 23.8,
+          "observation": "Head and right shoulder re-emerge on right side of pillar"
+        },
+        {
+          "t": 25.0,
+          "observation": "Full body re-emerges into unobstructed line of sight walking right"
+        }
+      ],
+      "occlusion_noted": true,
+      "timestamp_grounding_verified": [
+        19.0,
+        20.2,
+        21.4,
+        22.6,
+        23.8,
+        25.0
+      ],
+      "technical_assessment": "Target tracking lost completely between t=21.4s and t=22.6s due to large static structural occluder. State during occlusion is mathematically unobservable."
+    },
+    "reviewer_B": {
+      "role": "Domain Reviewer (Loss Prevention Officer)",
+      "incident_status_verdict": "insufficient_evidence",
+      "abstain_required": true,
+      "domain_rationale": "An investigator cannot attest to any action that occurs behind a solid pillar. Claiming that the worker planted a device, concealed stolen goods, or tampered with infrastructure while occluded is pure speculation.",
+      "unsupported_claims_flagged": [
+        "object_concealment",
+        "covert_tampering",
+        "contraband_drop",
+        "actor_intent"
+      ],
+      "evidentiary_status": "Evidence gap due to physical occlusion. Mandatory abstention regarding actions during the occluded interval."
+    }
+  },
+  "adjudication": {
+    "consensus_observable_action": "person_occluded_by_pillar",
+    "consensus_incident_status": "insufficient_evidence",
+    "consensus_abstain_required": true,
+    "agreed_supported_claims": [
+      "person_occluded_by_pillar"
+    ],
+    "agreed_unsupported_claims": [
+      "object_concealment",
+      "covert_tampering",
+      "contraband_drop",
+      "actor_intent"
+    ],
+    "adjudication_notes": "Consensus reached: transit behind pillar and temporary occlusion are verified; all assertions about hidden actions must be abstained from."
+  },
+  "annotation_protocol": "expert_modeled_provisional_dual_review",
+  "provenance_disclosure": "Modeled expert dual-reviewer protocol (CV Engineer & Loss Prevention Officer) developed for benchmark specification and rubric calibration; not biological crowd workers."
+}
