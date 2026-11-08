@@ -1,11 +1,6 @@
 # VIGIL-Eval: Video Intelligence Grounding & Inference Limitations Benchmark
 
-> **micro1 Eval Hackathon Submission**  
-> **Target Domain**: Computer Vision & AI CCTV Video Surveillance Analytics  
-> **Author**: Senior AI Evaluation Researcher / Project Lead  
-> **Repository**: VIGIL-Eval  
 
----
 
 ## 1. Project Overview
 
